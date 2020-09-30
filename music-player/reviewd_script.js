@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#Differences_from_innerText
+
 const image = document.querySelector('img');
 const title = document.getElementById('title');
 const artist = document.getElementById('artist');
