@@ -124,7 +124,7 @@ function changeSpeed() {
 
 // Fullscreen ------------------------------- //
 
-
+// W3School Example
 /* View in fullscreen */
 function openFullscreen(elem) {
     if (elem.requestFullscreen) {
@@ -158,12 +158,7 @@ let fullscreen = false;
 
 // Toggle toggleFullscreen
 function toggleFullscreen() {
-    if (!fullscreen) {
-        openFullscreen(player);
-    } else {
-        closeFullscreen()
-    }
-
+    !fullscreen ? openFullscreen(player) : closeFullscreen();
     fullscreen = !fullscreen;
 }
 
