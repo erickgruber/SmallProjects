@@ -22,6 +22,7 @@ const playAgainBtn = document.querySelector('.play-again');
 let questionAmount = 0;
 let equationsArray = [];
 let playerGuessArray = [];
+let bestScoreArray = [];
 
 // Game Page
 let firstNumber = 0;
@@ -30,9 +31,146 @@ let equationObject = {};
 const wrongFormat = [];
 
 // Time
+let timer;
+let timePlayed = 0;
+let baseTime = 0;
+let penaltyTime = 0;
+let finalTime = 0;
+let finalTimeDisplay = '0.0';
 
 // Scroll
 let valueY = 0;
+
+// Refresh splash page best scores
+function bestScoresToDOM() {
+    bestScores.forEach((bestScore, index) => {
+        const bestScoreEl = bestScore;
+        bestScoreEl.textContent = `${bestScoreArray[index].bestScore}s`;
+    });
+}
+
+// Check local storage  for best scores and set bestscoreArray
+function getSavedBestScores() {
+    if (localStorage.getItem('bestScores')) {
+        bestScoreArray = JSON.parse(localStorage.bestScores);
+    } else {
+        bestScoreArray = [
+            { questions: 10, bestScore: finalTimeDisplay },
+            { questions: 25, bestScore: finalTimeDisplay },
+            { questions: 50, bestScore: finalTimeDisplay },
+            { questions: 99, bestScore: finalTimeDisplay },
+
+        ];
+        localStorage.setItem('bestScores', JSON.stringify(bestScoreArray));
+    }
+    bestScoresToDOM();
+}
+
+// Update best score array
+function updateBestScore() {
+    bestScoreArray.forEach((score, index) => {
+        // Select correct best score to update
+        if (questionAmount == score.questios) {
+            // Return best score as a number with one decimal
+            const getSavedBestScores = Number(bestScoreArray[index].bestScore);
+            // Update if the new final score is less or replacing zero
+            if (getSavedBestScores === 0 || getSavedBestScores > finalTime) {
+                bestScoreArray[index].bestScore = finalTimeDisplay;
+            }
+        }
+    });
+    // Update splash page
+    bestScoresToDOM();
+    // Save to local storeage
+    localStorage.setItem('bestScores', JSON.stringify(bestScoreArray));
+}
+
+
+// Reset Game
+function playAgain() {
+    gamePage.addEventListener('click', startTimer);
+    scorePage.hidden = true;
+    splashPage.hidden = false;
+    equationsArray = [];
+    playerGuessArray = [];
+    valueY = 0;
+    playAgainBtn.hidden = true;
+}
+
+// Show scorepage
+function showScorePage() {
+    // Show play again button after 1s.
+    setTimeout(() => {
+        playAgainBtn.hidden = false;
+    }, 1000);
+    gamePage.hidden = true;
+    scorePage.hidden = false;
+}
+
+// Format and display time in DOM
+function scoresToDOM() {
+    finalTimeDisplay = finalTime.toFixed(1);
+    baseTime = timePlayed.toFixed(1);
+    penaltyTime = penaltyTime.toFixed(1);
+    baseTimeEl.textContent = `Base Time: ${baseTime}s`;
+    penaltyTimeEl.textContent = `Penalty: +${penaltyTime}s`;
+    finalTimeEl.textContent = `${finalTimeDisplay}s`;
+    updateBestScore();
+    // Scroll to top, go to score page
+    itemContainer.scrollTo({
+        top: 0,
+        behavior: 'instant'
+    });
+    showScorePage();
+}
+
+// Stop the timer, Process Results, go to Score Page
+function checkTime() {
+    console.log(timePlayed);
+    if (playerGuessArray.length == questionAmount) {
+        console.log('player guess array: ', playerGuessArray);
+        clearInterval(timer);
+        // cHECK FOR WRONG GUESSES , ADD PENALTY TIME
+        equationsArray.forEach((equation, index) => {
+            if (equation.evaluated === playerGuessArray[index]) {
+                // Corret guess, no penalty
+
+            } else {
+                // Incorrect Guess, Addpenalty
+                penaltyTime += .5;
+            }
+        });
+        finalTime = timePlayed + penaltyTime;
+        console.log('time', timePlayed, 'penalty', penaltyTime, 'final', finalTime);
+        scoresToDOM();
+    }
+}
+
+// Add a tenth of a second to timePlayed
+function addTime() {
+    timePlayed += .1;
+    checkTime();
+}
+
+// Start timer when game page is clicked 
+function startTimer() {
+    // Reset times
+    timePlayed = 0;
+    penaltyTime = 0;
+    finalTime = 0;
+    timer = setInterval(addTime, 100);
+    gamePage.removeEventListener('click', startTimer);
+}
+
+// Scroll, Store user selection in playerGuessArray
+function select(guessedTrue) {
+    // console.log('player guess array: ', playerGuessArray);
+    // scroll 80px
+    valueY += 80;
+    itemContainer.scroll(0, valueY);
+    // Add player guess to array
+    return guessedTrue ? playerGuessArray.push('true') : playerGuessArray.push('false');
+}
 
 // Display game page
 function showGamePage() {
@@ -180,3 +318,7 @@ startForm.addEventListener('click', () => {
 
 // Event Listeners
 startForm.addEventListener('submit', selectQuestionAmount);
+gamePage.addEventListener('click', startTimer);
+
+// On load
+getSavedBestScores();
