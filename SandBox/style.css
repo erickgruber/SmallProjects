@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+:root {
+    --menuBar: rgba(33, 147, 176);
+    --sideMenu: #0AA3CF;
+    --mainColor: #30D4FC;
+    --secondaryColor: #1D7E96;
+    --borderColor: #003E78;
+    --iconColor: #001D38;
+    --boxColor: #1D7E96;
+    --boxText: #F6BD7B;
+}
+
+
+/* Remove browser margin, padding */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* Borders and paddingsno longer added to the total width and total hight that we specify for a box */
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: var(--mainColor); */
+    font-family: 'Open Snas', sans-serif;
+    font-weight: 400;
+    /* letter-spacing: 2px; */
+}
+
+
+/* .content {
+    height: 154vh;
+    display: grid;
+    place-items: center; */
+
+
+/* color: yellow; */
+
+
+/* } */
+
+
+/* Navigation whitout JS */
+
+header {
+    background: var(--menuBar);
+    text-align: center;
+    position: fixed;
+    /* Always stays in front */
+    z-index: 100;
+    width: 100%;
+    height: 17%;
+    border-bottom: 2px solid var(--borderColor);
+}
+
+.logo-container {
+    /* border: 1px solid red; */
+    position: absolute;
+    right: 30px;
+    top: 37%;
+    margin-top: -25px;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    /* border: 1px solid red; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+.main-nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--menuBar);
+    width: 100%;
+    /* display: none; */
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+.main-nav-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav-ul li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: .75rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+.main-nav a:hover {
+    color: var(--iconColor);
+}
+
+.nav-toggle:checked~nav {
+    /* display: block; */
+    transform: scale(1);
+}
+
+.nav-toggle:checked~nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+.profile-img {
+    display: none;
+}
+
+
+/* Left side */
+
+.left-container {
+    position: absolute;
+    background: var(--menuBar);
+    position: fixed;
+    top: 17%;
+    width: 25%;
+    height: 100%;
+    border-right: 2px solid var(--borderColor);
+}
+
+.left-container p {
+    display: none;
+}
+
+.left-nav-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    height: 45%;
+    background: var(--sideMenu);
+    list-style-type: none;
+    border-bottom: 1px solid var(--borderColor);
+}
+
+.left-nav-ul li {
+    position: relative;
+    padding: 19%;
+    border-bottom: 1px solid var(--borderColor);
+}
+
+.left-nav-ul i {
+    color: var(--iconColor);
+}
+
+.left-nav-ul i:hover {
+    filter: brightness(120%);
+}
+
+.fa-lg {
+    font-size: 2em;
+}
+
+
+/* Inner Content */
+
+
+/* Fake users from  https://unsplash.com/*/
+
+.inner-container {
+    position: absolute;
+    background: var(--mainColor);
+    top: 17%;
+    right: 0;
+    width: 75%;
+    height: auto;
+    /* border-right: 2px solid var(--borderColor); */
+}
+
+.box {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+    height: 250px;
+    width: 200px;
+    margin: 20px auto;
+    border-radius: 5px;
+    background: var(--boxColor);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.box img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: auto 60px 4px;
+}
+
+hr {
+    border: 1px solid var(--iconColor);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.box-text-1 {
+    color: var(--boxText);
+}
+
+.box-text-2 {
+    color: #fff;
+    font-size: 12px;
+}
+
+.box p {
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin: 0 0 0 15px;
+}
+
+.box p:first-of-type {
+    text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .logo-container {
+        grid-column: 1 / 2;
+        display: flex;
+    }
+    .logo-container img {
+        margin: auto 30px;
+    }
+    .main-nav {
+        all: unset;
+        /* grid-column: 2 / 2 span 3; */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .main-nav a {
+        opacity: 1;
+        position: relative;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .main-nav a::before {
+        content: '';
+        display: block;
+        height: 2px;
+        background: var(--iconColor);
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transition: transform ease-in-out 250ms;
+    }
+    .main-nav a:hover::before {
+        transform: scale(1, 1);
+    }
+    .profile-img {
+        all: unset;
+        grid-column: 6/6;
+        display: flex;
+        /* position: relative; */
+    }
+    .profile-img img {
+        width: 80px;
+        height: 80px;
+        margin: auto 30px;
+    }
+    .main-nav ul {
+        display: flex;
+        margin: auto 30px;
+    }
+    .main-nav ul li {
+        margin-left: 1.4em;
+        margin-bottom: 0;
+    }
+    /* Left side of the page */
+    /* .left-container {
+        position: absolute;
+        background: var(--menuBar);
+        position: fixed;
+        top: 17%;
+        width: 10%;
+        height: 75%;
+        border-right: 2px solid var(--borderColor);
+    } */
+    /* .left-nav {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    } */
+    /* Footer  */
+    .footer-container {
+        position: absolute;
+        background: var(--menuBar);
+        position: fixed;
+        top: 92%;
+        width: 100%;
+        height: 8%;
+        border-top: 2px solid var(--borderColor);
+    }
+}
