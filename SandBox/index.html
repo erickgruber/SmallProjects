@@ -20,16 +20,18 @@
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <nav class="main-nav">
                 <ul class="main-nav-ul">
-                    <li class="default"><a href="#">Dashboard </a></li>
-                    <li><a href="#">Messages </a></li>
-                    <li><a href="#">Notification </a></li>
-                    <li><a href="#">Preferences </a></li>
-                    <li><a href="#">Contact </a></li>
-                    <li><a href="#" id="profile">Profile </a></li>
+                    <li><a href="#"><i class="fas fa-users fa-lg"></i> <span>Users</span> </a></li>
+                    <li><a href="#"><i class="fas fa-flag fa-lg"></i> <span>Notification</span></a></li>
+                    <li><a href="#"><i class="fas fa-map-marked-alt fa-lg"></i><span>Location</span></a></li>
+                    <li><a href="#"><i class="fas fa-gem fa-lg"></i><span>Payment</span> </a></li>
+                    <li><a href="#"><i class="fas fa-address-book fa-lg"></i><span>Contact</span> </a></li>
+                    <li><a href="#" id="profile"><i class="fas fa-user-circle fa-lg"></i><span>Profile</span></a></li>
                 </ul>
             </nav>
-            <div class="profile-img">
+            <div class="profile-img profile-tooltip">
                 <img src="/assets/profilkep.png" alt="Profile picture">
+                <span class="profile-notification-icon">0</span>
+                <p class="profile-tooltiptext">Online</p>
             </div>
             <label for="nav-toggle" class="nav-toggle-label">
                 <span></span>
@@ -44,128 +46,125 @@
                 <li>
                     <a class="notification" href="#">
                         <span><i class="fas fa-envelope fa-lg"></i></span>
-                        <span class="notification-icon">7</span>
-                    </a>
+                        <span class="notification-icon">7</span></a>
                 </li>
-                <li>
-                    <a href="#"><i class="fas fa-camera fa-lg"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-folder-open fa-lg"></i></a>
-                </li>
-                <li>
-
-                    <a href="#"><i class="fas fa-globe-americas fa-lg "></i> </a>
-                </li>
-                <li>
-                    <a href="#"><i class="far fa-star fa-lg"></i></a>
+                <li><a href="#"><i class=" fas fa-user-md fa-lg "></i></a></li>
+                <li><a href="#"><i class="fas fa-folder-open fa-lg"></i></a></li>
+                <li><a href="#"><i class="fas  fa-globe-americas fa-lg "></i> </a></li>
+                <li><a href="#"><i class="far fa-star fa-lg"></i></a>
                 </li>
             </ul>
         </nav>
     </div>
     <!-- Inner Section -->
-    <div class="inner-container">
-        <div class="box">
-            <img src="/assets/profilePictures/1.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+    <div class="inner-wrap">
+        <div class="inner-container">
+            <div class="box-first-row">
+                <div class="box">
+                    <img src="/assets/profilePictures/1.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/assets/profilePictures/2.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/assets/profilePictures/3.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="box">
-            <img src="/assets/profilePictures/2.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="/assets/profilePictures/3.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="/assets/profilePictures/4.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="/assets/profilePictures/5.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="/assets/profilePictures/6.png" alt="Fake user">
-            <p>Lorem, ipsum.</p>
-            <hr>
-            <p class="box-text-1">Email</p>
-            <p class="box-text-2">erickgruber@outlook.com</p>
-            <p class="box-text-1">Phone</p>
-            <p class="box-text-2">123-456-7890</p>
-            <div class="box-social-media">
-                <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
-                <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+            <div class="box-second-row">
+                <div class="box">
+                    <img src="/assets/profilePictures/4.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/assets/profilePictures/5.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="/assets/profilePictures/6.png" alt="Fake user">
+                    <p>Lorem, ipsum.</p>
+                    <hr>
+                    <p class="box-text-1">Email</p>
+                    <p class="box-text-2">erickgruber@outlook.com</p>
+                    <p class="box-text-1">Phone</p>
+                    <p class="box-text-2">123-456-7890</p>
+                    <div class="box-social-media">
+                        <a href="#"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#"><i class="fab fa-github-square fa-lg"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <!-- Footer -->
     <div class="footer-container">
         <!-- Dark Light Mode -->
-        <div>
-            <input type="checkbox" class="checkbox" id="toggle" />
-            <label class="label" for="toggle">
-                <div class="toggle-circle"></div>
-            </label>
+        <div class="checkbox-container">
+            <i class="fas fa-toggle-on fa-lg"></i>
         </div>
 
         <!-- Search -->
         <div class="search-container">
-            <input type="text" placeholder="Search.." name="search">
-            <i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search.." name="search"><i class="fa fa-search"></i>
+
         </div>
-        <footer>
+
+        <!-- Trade mark -->
+        <footer class="trademark-container">
             <p><b>	&#169;</b> Tech & Design</p>
         </footer>
     </div>
