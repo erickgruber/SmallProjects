@@ -47,8 +47,8 @@ if (isMobile.matches) {
 let playerScore = 0;
 let computerScore = 0;
 const winningScore = 7;
-// let isGameOver = true;
-// let isNewGame = true;
+let isGameOver = true;
+let isNewGame = true;
 
 // Render Everything on Canvas
 function renderCanvas() {
@@ -94,7 +94,7 @@ function createCanvas() {
 }
 
 // Remove this
-createCanvas();
+// createCanvas();
 
 // Reset Ball to Center
 function ballReset() {
@@ -181,15 +181,15 @@ function showGameOverEl(winner) {
     // Hide Canvas
 
     // // Container
-    // gameOverEl.textContent = '';
-    // gameOverEl.classList.add('game-over-container');
-    // // Title
-    // const title = document.createElement('h1');
-    // title.textContent = `${winner} Wins!`;
-    // // Button
-    // const playAgainBtn = document.createElement('button');
-    // playAgainBtn.setAttribute('onclick', 'startGame()');
-    // playAgainBtn.textContent = 'Play Again';
+    gameOverEl.textContent = '';
+    gameOverEl.classList.add('game-over-container');
+    // Title
+    const title = document.createElement('h1');
+    title.textContent = `${winner} Wins!`;
+    // Button
+    const playAgainBtn = document.createElement('button');
+    playAgainBtn.setAttribute('onclick', 'startGame()');
+    playAgainBtn.textContent = 'Play Again';
     // // Append
 
 
@@ -197,12 +197,12 @@ function showGameOverEl(winner) {
 
 // Check If One Player Has Winning Score, If They Do, End Game
 function gameOver() {
-    // if (playerScore === winningScore || computerScore === winningScore) {
-    //   isGameOver = ;
-    //   // Set Winner
-    //   let winner = ;
-    //   showGameOverEl(winner);
-    // }
+    if (playerScore === winningScore || computerScore === winningScore) {
+        isGameOver = ;
+        // Set Winner
+        let winner = ;
+        showGameOverEl(winner);
+    }
 }
 
 // Called Every Frame
@@ -211,7 +211,10 @@ function animate() {
     ballMove();
     ballBoundaries();
     computerAI();
-
+    gameOver();
+    if (!isGameOver) {
+        window.requestAnimationFrame(animate);
+    }
 }
 
 // Start Game, Reset Everything
@@ -226,9 +229,10 @@ function startGame() {
     computerScore = 0;
     ballReset();
     createCanvas();
-    animate();
+    // animate();
+    // setInterval(animate, 1000 / 60);
     canvas.addEventListener('mousemove', (e) => {
-        console.log(e.clientX);
+        // console.log(e.clientX);
         playerMoved = true;
         // Compensate for canvas being centered
         paddleBottomX = e.clientX - canvasPosition - paddleDiff;
@@ -244,4 +248,4 @@ function startGame() {
 }
 
 // On Load
-// startGame();
+startGame();
