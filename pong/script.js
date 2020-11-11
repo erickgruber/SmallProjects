@@ -179,8 +179,8 @@ function computerAI() {
 
 function showGameOverEl(winner) {
     // Hide Canvas
-
-    // // Container
+    canvas.hidden = true;
+    // Container
     gameOverEl.textContent = '';
     gameOverEl.classList.add('game-over-container');
     // Title
@@ -190,17 +190,18 @@ function showGameOverEl(winner) {
     const playAgainBtn = document.createElement('button');
     playAgainBtn.setAttribute('onclick', 'startGame()');
     playAgainBtn.textContent = 'Play Again';
-    // // Append
-
+    // Append
+    gameOverEl.append(title, playAgainBtn);
+    body.appendChild(gameOverEl);
 
 }
 
 // Check If One Player Has Winning Score, If They Do, End Game
 function gameOver() {
     if (playerScore === winningScore || computerScore === winningScore) {
-        isGameOver = ;
+        isGameOver = true;
         // Set Winner
-        let winner = ;
+        const winner = playerScore === winningScore ? 'Player 1' : 'computer';
         showGameOverEl(winner);
     }
 }
@@ -219,17 +220,18 @@ function animate() {
 
 // Start Game, Reset Everything
 function startGame() {
-    // if (isGameOver && !isNewGame) {
+    if (isGameOver && !isNewGame) {
+        body.removeChild(gameOverEl);
+        canvas.hidden = false;
 
-
-    // }
-    // isGameOver = ;
-    // isNewGame = ;
+    }
+    isGameOver = false;
+    isNewGame = false;
     playerScore = 0;
     computerScore = 0;
     ballReset();
     createCanvas();
-    // animate();
+    animate();
     // setInterval(animate, 1000 / 60);
     canvas.addEventListener('mousemove', (e) => {
         // console.log(e.clientX);
